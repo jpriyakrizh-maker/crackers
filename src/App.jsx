@@ -12,13 +12,6 @@ const PRODUCTS = [
   { id: 3, name: "Sky Shot Mega Box", cat: "Combos", was: 2999, now: 1999, bang: 5, info: "Multi-shot aerials and fancy skyshots" },
   { id: 4, name: "Colour Sparklers (10 pcs)", cat: "Sparklers", was: 120, now: 90, bang: 1, info: "Long burn, 3 colours" },
   { id: 5, name: "Gold Sparklers (5 pcs)", cat: "Sparklers", was: 60, now: 45, bang: 1, info: "Classic gold sparkle" },
-  { id: 6, name: "Flowerpot Deluxe (10 pcs)", cat: "Ground", was: 350, now: 260, bang: 2, info: "Tall fountain of light" },
-  { id: 7, name: "Ground Chakra (10 pcs)", cat: "Ground", was: 180, now: 135, bang: 2, info: "Spinning wheels of sparks" },
-  { id: 8, name: "Rocket Pack (5 pcs)", cat: "Sky", was: 250, now: 190, bang: 4, info: "Whistle and burst" },
-  { id: 9, name: "Fancy 7-Shot", cat: "Sky", was: 450, now: 330, bang: 4, info: "Seven colour bursts" },
-  { id: 10, name: "Fancy 30-Shot", cat: "Sky", was: 1200, now: 880, bang: 5, info: "Loud and bright aerial" },
-  { id: 11, name: "Snake Tablets (box)", cat: "Kids", was: 40, now: 30, bang: 1, info: "No sound, no spark" },
-  { id: 12, name: "Pop Pop Boxes (50 pcs)", cat: "Kids", was: 90, now: 70, bang: 1, info: "Tiny pops, safe for little ones" },
 ];
 const TABS = ["All", "Combos", "Kids", "Sparklers", "Ground", "Sky"];
 const TAB_COLOR = { Combos: "#8c1d3f", Kids: "#1f7a5c", Sparklers: "#c98a1b", Ground: "#3d4fb5", Sky: "#0e1330" };
@@ -111,7 +104,7 @@ function Sky({ burstRef }) {
 }
 
 export default function App() {
-  const burstRef = useRef(() => {});
+  const burstRef = useRef(() => { });
   const [cart, setCart] = useState({});
   const [open, setOpen] = useState(false);
   const [tab, setTab] = useState("All");
@@ -157,8 +150,7 @@ export default function App() {
         <button className="cartbtn" onClick={() => setOpen(true)}>Cart <span>{count}</span></button>
       </header>
 
-      <section id="top" className="hero" onClick={(e) => { if (e.target.closest("a,button")) return; const r = e.currentTarget.getBoundingClientRect(); burstRef.current(e.clientX - r.left, e.clientY - r.top); }}>
-        <Img className="herobg" src="https://www.fnp.com/images/pr/x/v20220926163733/diwali-special-choco-crackers_1.jpg" />
+      <section className="hero" id="top">
         <div className="shade" />
         <Sky burstRef={burstRef} />
         <div className="wrap herogrid">
@@ -189,7 +181,7 @@ export default function App() {
             <article key={o.code} className="offer">
               <div className="oimg"><Img src={IMG.offers[i]} alt={o.title} /></div>
               <div className="obody"><h3>{o.title}</h3><p>{o.text}</p>
-              <button onClick={() => { setCode(o.code); setOpen(true); }}>Apply {o.code}</button></div>
+                <button onClick={() => { setCode(o.code); setOpen(true); }}>Apply {o.code}</button></div>
             </article>
           ))}
         </div>
@@ -282,7 +274,7 @@ export default function App() {
           <div><h3>Explore</h3><a href="#offers">Offers</a><a href="#products">Shop</a><a href="#faq">FAQ</a></div>
         </div>
         <p className="safe">Please burst crackers outdoors, in permitted hours, with an adult nearby and water ready.</p>
-       <p className="safe">Happy Diwali-2026🪔🧨✨🎆❤️</p>
+        <p className="safe">Happy Diwali-2026🪔🧨✨🎆❤️</p>
 
 
       </footer>
